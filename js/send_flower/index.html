@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>代码设计模式之代理模式</h1>
+    <script>
+        //  ?  李江龙
+        //  document.write('李江龙')
+        //  对象字面量 描述功能 强大的表现力
+        //  对象由属性和方法构成
+        //  动作
+        let  ljl ={
+            name: '李江龙',
+            age: 22,
+            hemetown: '江西赣州',
+            // hasGirlfriend: false
+            isSingle: true,
+            // o是行参
+            sendflower(o) {
+                o.receiveFlower(this)
+            }
+        } 
+        let ln={
+            xq: 50,
+            name: '雷楠',
+            age: 22,
+            hometown: '江西赣州',
+            room: '803',
+            receiveFlower(o){
+                console.log(`${this.name}收到了${o.name}送的花`)
+                if (this.xq >= 90) {
+                    console.log('万达走一波')
+                } else {
+                    console.log('酸辣汤准备好....')
+                }
+            }
+        } 
+        // 代理模式
+        let  xh ={
+            name: '小红',
+            room: '803',
+            hometown: '九江',
+            // 接口  当不同的对象， 具有相同的方法时， 可以互换使用
+            receiveFlower(o){
+                //if(o.name =='李江龙'){
+                //   console.log('让我们在一起吧...')
+                // } else {
+                // ln.receiveFlower(o)
+                // }
+                setTimeout(function() {
+                    ln.xq = 95,
+                    ln.receiveFlower(o)
+                }, 10000)
+            }
+        }
+
+        ljl.sendflower(xh)
+    </script>
+</body>
+</html>
