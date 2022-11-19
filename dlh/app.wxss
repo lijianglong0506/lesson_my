@@ -1,0 +1,15 @@
+/**app.wxss**/
+/* 全局共享样式 */
+/* 统一设置每个页面 */
+@import "styles/reset.wxss";  /*应用外部样式*/
+@import "styles/hero.wxss";   
+@import "styles/button.wxss";
+@import "styles/action.wxss";
+  
+page{
+   background-color: #f8f8f8;
+}
+
+.section{
+  height: 100vh;
+}
