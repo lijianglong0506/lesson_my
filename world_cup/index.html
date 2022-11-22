@@ -27,6 +27,7 @@
 <body>
     <!-- <div class="box"></div> -->
     <div class="container">
+        <!-- loading状态 -->
         <div class="load">
             <div class="loadImg">
                 <div class="loadTxt">loading</div>
@@ -34,10 +35,45 @@
                 <div class="circle1"></div>
             </div>
         </div>
+        <!-- 3D反转页面 -->
+        <div class="global" style="transform: translateZ(-8.89333rem);">
+            <div class="screen ease">
+                <!-- 首页 -->
+               <section class="layer layer1"></section>  <!-- html5语言，表示一个区块 -->
+                   
+               <!-- 赛程页面 -->
+               <section class="layer layer2"></section>  
+            </div>
+        </div>
     </div>
+    <!-- js  手势库 -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
     <script>
+        // event 不跟html css 静态页面文档流渲染  抢时间  
+        // 文档流会确定布局   文档流+盒子模型 = 布局 + CSS 细节 = 静态页面  优先级最高的
     window.onload = function(){
-
+        const oLoad = document.querySelector('.load');
+        const oScreen = document.querySelector('.screen');
+         setTimeout(function(){
+            // 数据请求要2s
+            // 隐藏load 状态元素， 离开了文档流
+            oLoad.style.display = 'none';
+         }, 2000)
+        //  setTimeout(function(){
+        //    oScreen.classList.add('screen_x90');
+        //  }, 6000)
+        //  手势库
+         const hammerText = new Hammer(document.querySelector('.container'));
+         hammerText.on('pan panmove', function(ev){
+            // console.log(ev);
+            if(ev.additionalEvent == 'panup'){
+                // 上提页面
+                oScreen.classList.add('screen_x90');
+            } else if (ev.additionalEvent == 'pandown'){
+                // 下拉页面
+                oScreen.classList.remove('screen_x90');
+            }
+         })
     }
     </script>
 </body>
