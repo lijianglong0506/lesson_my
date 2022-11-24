@@ -13,7 +13,7 @@ Page({
   onLoad() {
     setTimeout(() => {
       this.setData({
-        title: '奔驰の000',
+        title: '奔驰E300',
         car: 'https://p3.dcarimg.com/img/motor-mis-img/da4bd1a0c71a767608dbca2c452b2053~512x0.webp'
       })
     }, 3000)

@@ -1,7 +1,0 @@
-.action{
-    text-align: center;
-    padding: 96rpx;
-}
-.action .description{
-    margin-bottom: 48rpx;
-}

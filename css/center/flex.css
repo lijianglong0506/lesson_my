@@ -1,0 +1,9 @@
+.wp{
+   /* display: block; */
+   /*display: inline;           行内元素
+   display: inline-block;   行内块级元素 */
+   /* 新的布局可能 弹性布局 */
+   display: flex;
+   justify-content: center;   /*水平居中 */
+   align-items: center;
+}
