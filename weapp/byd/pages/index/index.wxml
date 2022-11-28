@@ -1,0 +1,35 @@
+<view class="nav-bar" style="height:{{navBarHeight}}px;">
+    <input class="search" placeholder="输入关键词！" style="height:{{menuHeight}}px; min-height:{{menuHeight}}px; line-height:{{menuHeight}}px; margin-left:{{menuRight}}px; margin-top:{{menuTop}}px;"></input>
+</view>
+<view class="navbar">
+    <text wx:for="{{navbar}}" data-idx="{{index}}" bindtap="navbarTap" class="{{currentTab == index ? 'active':''}}" wx:key="unique">{{item}}</text>
+</view>
+<!-- 推荐 -->
+<view wx:if="{{currentTab == 0}}">
+    <swiper autoplay="true" interval="3000" circular="true" indicator-dots="true">
+        <swiper-item>
+            <image mode="widthFix" src="/byd.image/1.png"></image>
+        </swiper-item>
+        <swiper-item>
+            <image mode="widthFix" src="/byd.image/2.png"></image>
+        </swiper-item>
+        <swiper-item>
+            <image mode="widthFix" src="/byd.image/3.png"></image>
+        </swiper-item>
+        <swiper-item>
+            <image mode="widthFix" src="/byd.image/4.png"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<view wx:if="{{currentTab == 1}}">
+    动态
+</view>
+<view wx:if="{{currentTab == 2}}">
+    圈子
+</view>
+<view wx:if="{{currentTab == 3}}">
+    专区
+</view>
+<view wx:if="{{currentTab == 4}}">
+    活动
+</view>

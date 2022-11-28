@@ -1,0 +1,13 @@
+<view class="container">
+<!-- 地图组件 -->
+<!-- latitude 纬度 -->
+<!-- longitude 经度  -->
+<map class="map" latitude='{{latitude}}' longitude='{{longitude}}'>
+
+</map>
+</view>
+
+
+
+
+
