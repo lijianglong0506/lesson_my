@@ -1,12 +1,28 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
-  ],
-  "window":{
-    "navigationStyle": "custom",
-    "navigationBarBackgroundColor": "#000",
-    "backgroundColorTop":"#000"
-  },
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/index/index",
+        "pages/logs/logs",
+        "pages/shangcheng/shangcheng"
+    ],
+    "window": {
+        "navigationStyle": "custom",
+        "navigationBarBackgroundColor": "#000",
+        "backgroundColorTop": "#000"
+    },
+    "tabBar": {
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "社区",
+                "iconPath": "/tubiao.image/社区.png",
+                "selectedIconPath": "/tubiao.image/社区.png"
+            },
+            {
+                "pagePath": "pages/shangcheng/shangcheng",
+                "text": "社区",
+                "iconPath": "/tubiao.image/商城.png",
+                "selectedIconPath": "/tubiao.image/商城.png"
+            }
+        ]
+    }
 }

@@ -1,9 +1,13 @@
-swiper{
+.swiper{
     width: 100%;
     height:223.266px;
 }
 image{
     width: 100%;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
 }
 .nav-bar{
     background-color: blue;

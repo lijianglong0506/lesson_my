@@ -1,0 +1,15 @@
+<view class="page">
+  <view style="height:50vh;"></view>
+  <swiper class="didi_menus {{(menu_type == 2)&&'higher_menus'}}" 
+     indicator-dots="true" 
+     indicator-color="gray" 
+     indicator-active-color="red"
+     bindchange="menuChange">
+    <swiper-item style="background-color: green;">
+      1
+    </swiper-item>
+    <swiper-item style="background-color: yellow;">
+      2
+    </swiper-item>
+  </swiper>
+</view>

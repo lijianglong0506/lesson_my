@@ -1,0 +1,7 @@
+/* pages/didi/diid.wxss */
+.didi_menus {
+  height: 400rpx;
+}
+.height_menus {
+  height: 800rpx;
+}
