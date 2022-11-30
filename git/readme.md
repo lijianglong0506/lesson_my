@@ -79,3 +79,14 @@ git的工作流程：
    /temp  仅忽略项目根目录下的TODO文件，不包括其他目录temp
    build/ 忽略build/目录下的所有文件
    doc/*.txt  会忽略 doc/notes.txt  但不包括 doc/server/arch.txt
+
+
+- git init (初始化 让项目进入到)
+- git add readme.md 多次添加到暂存区
+- git commit -m'reason' 一次性提交
+- git log --online  提交记录
+- git reset --hard HEAD^  月光宝盒 想回到哪个地方就回到哪个地方
+- git status  当前仓库状态
+- git pull origin master  拉下来
+- git push origin master  提交到远程仓库地址
+- git diff  查看下现在的代码和上一个代码 修改了些什么
