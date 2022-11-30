@@ -71,6 +71,8 @@ git的工作流程：
    git status [filename] 查看指定文件状态
    git add .     添加所有文件到暂存区
    git commit -m"消息内容" 提交暂存区中的内容到本地仓库 -m 提交信息
+   git log  查看提交记录
+   git reset --hard HEAD^  回到上一个版本
 
    *.txt  忽略所有.txt结尾的文件，这样的话上传就不会选中
    ！lib.txt  但lib.txt除外
