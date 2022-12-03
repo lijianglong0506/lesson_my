@@ -2,14 +2,20 @@
     "pages": [
         "pages/index/index",
         "pages/logs/logs",
-        "pages/shangcheng/shangcheng"
+        "pages/shangcheng/shangcheng",
+        "pages/gouche/gouche",
+        "pages/page/page",
+        "pages/wode/wode",
+        "pages/fuwu/fuwu"
     ],
+    "lazyCodeLoading": "requiredComponents",
     "window": {
         "navigationStyle": "custom",
         "navigationBarBackgroundColor": "#000",
         "backgroundColorTop": "#000"
     },
     "tabBar": {
+       
         "list": [
             {
                 "pagePath": "pages/index/index",
@@ -19,9 +25,27 @@
             },
             {
                 "pagePath": "pages/shangcheng/shangcheng",
-                "text": "社区",
+                "text": "商城",
                 "iconPath": "/tubiao.image/商城.png",
                 "selectedIconPath": "/tubiao.image/商城.png"
+            },
+            {
+                "pagePath": "pages/gouche/gouche",
+                "text": "购车",
+                "iconPath": "/tubiao.image/购车.png",
+                "selectedIconPath": "/tubiao.image/购车.png"
+            },
+            {
+                "pagePath": "pages/fuwu/fuwu",
+                "text": "服务",
+                "iconPath": "/tubiao.image/服务.png",
+                "selectedIconPath": "/tubiao.image/服务.png"
+            },
+            {
+                "pagePath": "pages/wode/wode",
+                "text": "我的",
+                "iconPath": "/tubiao.image/我的.png",
+                "selectedIconPath": "/tubiao.image/我的.png"
             }
         ]
     }

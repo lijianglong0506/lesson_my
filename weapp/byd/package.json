@@ -1,0 +1,18 @@
+{
+  "devDependencies": {
+    "mockjs": "^1.1.0"
+  },
+  "name": "byd",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "dependencies": {
+    "commander": "^9.4.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -1,10 +1,60 @@
-/**app.wxss**/
-.container {
+.page,
+page {
+  height: 100vh;
+  background-color: #f6f6f6;
+}
+
+/* 样式组件的复用  BEM */
+/* Block tab */
+.rx_tab {
+  display: flex;
+  height: 100%;
+}
+
+/* Element tab__item */
+.rx_tab__item {
+  position: relative;
+  flex: 1;
   height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
-  box-sizing: border-box;
-} 
+  justify-content: center;
+  /* background: green; */
+}
+
+/* 内容开始之前 */
+
+/* Modifier on 激活 */
+.rx_tab__item-on {
+  color: #f01414;
+}
+
+/* 
+  伪元素， 没有标签， 但是css block 
+  内容开始之前
+  内容结束之后
+  border  盒子模型
+*/
+.rx_tab__item:before {
+  content: '';
+  position: absolute;
+  top: 20rpx;
+  right: 0;
+  bottom: 20rpx;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.rx_tab__item:last-child:before {
+  display: none;
+}
+
+.rx_tab__item-on:after {
+  content: '';
+  position: absolute;
+  bottom: -10rpx;
+  left: 80rpx;
+  right: 80rpx;
+  height: 1px;
+  background: #f01414;
+}

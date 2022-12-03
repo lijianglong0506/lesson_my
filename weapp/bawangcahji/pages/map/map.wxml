@@ -1,0 +1,32 @@
+<view class="page">
+  <view class="page__hd"></view>
+  <view class="page__bd">
+    <!-- Block  map  controller  -->
+    <view class="bw_mapController">
+      <view class="bw_mapController__hd">
+        <view class="bw_mapController__title">
+          国家税务局南昌县税务局
+        </view>
+        <block wx:if="{{!showMap}}">
+          <view 
+          bindtap="toggleMap"
+          class="bw_mapController__btn ">查看地图</view>
+        </block>
+      </view>
+      <view
+       class="bw_mapController__bd {{!showMap? 'bw_mapController__bd-hide': ''}} ">
+      <map 
+      show-location="{{true}}"
+       latitude="{{latitude}}"
+       longitude="{{longitude}}"
+       ></map>
+
+       <view
+       bindtap="toggleMap"
+        class="bw_mapController__switch">
+         收起地图
+       </view>
+      </view>
+    </view>
+  </view>
+</view>

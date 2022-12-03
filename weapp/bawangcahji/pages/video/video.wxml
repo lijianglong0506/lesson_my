@@ -1,0 +1,46 @@
+<!-- 通用的命名 -->
+<view class="cards">
+<!-- :hover : active -->
+<view 
+class="card"
+ hover-class="hover"
+ wx:for="{{stories}}"
+ wx:key="id"
+ >
+ <!-- 小程序独有 hover-class -->
+ <video 
+ id="video-{{item.id}}"
+ hidden="{{currentVid !== item.id}}"
+ poster="{{item.image}}"
+ object-fit="cover"
+ duration="{{item.duration_raw}}"
+ src="{{item.video}}"></video>
+ <image 
+ hidden = "{{currentVid === item.id}}"
+ src="{{item.image}}"
+ data-vid = "{{item.id}}"
+ bindtap="play"
+ mode="aspectFill"
+ >
+<view class="label">{{item.duration}}</view>
+ </image>
+ <navigator
+  url="pages/stories/show?id={{item.id}}"
+  hover-class="none"
+  >
+<view class="content">
+<view class="header">
+{{item.header}}
+</view>
+<view class="description">
+{{item.description}}
+</view>
+<view class="meta">
+{{item.meta.price}}
+</view>
+</view>
+ 
+ </navigator>
+ </view>
+
+</view>

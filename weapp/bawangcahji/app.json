@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/waimai/waimai",
-    "pages/didi/diid",
+    "pages/video/video",
+    "pages/map/map",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/goods/goods"
+    "pages/logs/logs"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

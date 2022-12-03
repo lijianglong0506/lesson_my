@@ -1,0 +1,53 @@
+.page {
+  height: 100vh;
+  overflow: hidden;
+  display:flex;
+  flex-direction: column;
+}
+.page__hd {
+  height: 88rpx;
+  /* background: green; */
+}
+.page__bd {
+  flex:1;
+  /* background: yellow; */
+}
+.page__bd swiper {
+  height: 100%;
+}
+.rx_goods {
+  display: flex;
+  height: 100%;
+}
+.menu-wrapper, .foods-wrapper {
+  height: 100%;
+}
+.menu-wrapper {
+  width: 160rpx;
+  /* background-color: green; */
+}
+.foods-wrapper {
+  flex: 1;
+  /* background-color: yellow; */
+}
+.menu-wrapper scroll-view {
+  height: 100%;
+}
+.menu-item{
+  position: relative;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+}
+.menu-item.active{
+  color:#f01414;
+}
+.menu-item:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0,0,0,0.1);
+}

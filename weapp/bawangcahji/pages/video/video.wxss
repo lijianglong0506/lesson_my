@@ -1,0 +1,62 @@
+.cards {
+  padding: 32rpx;
+}
+
+.card {
+  background: #ffffff;
+  margin-bottom: 32rpx;
+  transition: 0.5s all;
+}
+
+.card.hover {
+  box-shadow: 0 64rpx 96rpx rgba(0, 0, 0, 0.6);
+}
+
+.card image {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+
+.card image,
+.card video {
+  height: 36vh;
+  width: 100%;
+}
+
+.card image .label {
+  position: absolute;
+  bottom: 16rpx;
+  right: 16rpx;
+  font-size: 12pt;
+  padding: 4rpx 8rpx;
+  background: rgba(0, 0, 0, 0.85);
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 4rpx;
+}
+
+.card .content {
+  padding: 48rpx 48rpx 64rpx;
+}
+
+.card .header {
+  font-size: 24pt;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  margin-bottom: 48rpx;
+}
+
+.card .header:after {
+  content: "";
+  display: block;
+  width: 80rpx;
+  border-bottom: 2px solid #000;
+  padding-bottom: 16rpx;
+}
+
+.card .description,
+.card .meta {
+  margin-bottom: 16rpx;
+  color: rgba(0, 0, 0, 0.85);
+  font-size: 16pt;
+}
