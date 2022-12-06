@@ -1,0 +1,15 @@
+{
+  "name": "ajax_demo",
+  "version": "1.0.0",
+  "description": "- 前后端分离\r       前端:table\r       后端？\r       GET HTTP Method\r       /student\r       返回json 数据",
+  "main": "index.js",
+  "scripts": {
+    "dev": "json-server --watch student.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.1"
+  }
+}
