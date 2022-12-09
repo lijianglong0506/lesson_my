@@ -1,0 +1,38 @@
+/* pages/home/home.wxss */
+.search-container{
+  background-color: white;
+}
+.search{
+  position: relative;
+  width: 100vw;
+  display: flex;
+  box-sizing: border-box;
+  padding-left: 26rpx;
+  background-color: white;
+}
+.search input{
+  display: block;
+  box-sizing: border-box;
+  background-color: #f7f8fA;
+  height: 62rpx;
+  border-radius: 20rpx;
+  padding-left: 20rpx;
+  line-height: 62rpx;
+  font-size: 10pt;
+}
+.search-placeholder{
+  font-size: 12pt;
+ color: #a9a6a6;
+
+}
+.event{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.event .close {
+  margin-top: 52rpx;
+}

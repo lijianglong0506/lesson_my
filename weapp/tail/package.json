@@ -1,0 +1,15 @@
+{
+  "name": "tail",
+  "version": "1.0.0",
+  "description": "-   项目配置在根目录app.json\r   - 隐藏并定制navigationBar\r     \"navigationStyle\": \"custom\"\r   - 启动定位功能",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vant/weapp": "^1.10.8"
+  }
+}

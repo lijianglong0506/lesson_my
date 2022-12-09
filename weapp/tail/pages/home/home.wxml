@@ -1,0 +1,21 @@
+<view class="search-container">
+  <view class="search" style="height:{{navHeight}}px;padding-top:{{navTop}}px">
+    <view class="search-title" style="height:{{navHeight-navTop-5}}px;line-height:{{navHeight-navTop-5}}px;width:{{(132/52*(navHeight-navTop-5))}}px">
+      商城
+    </view>
+    <input 
+       placeholder-class="search-placeholder"
+       style="width:{{menuButtonObject.left-18-((132/52)*(navHeight-navTop-5))}}px"  
+       type="text"
+       placeholder="输入关键词搜索"
+       disabled
+       bindtap="goSearch"
+    />
+  </view>
+</view>
+<van-overlay show="{{eventShow}}">
+  <view class="event">
+    <image mode="widthFix" src="https://7.s2m.cc/2022/01/01/419a797b-bcd7-4d31-976f-7b97231223b0.jpeg" />
+    <van-icon custom-class="close" name="close" size="64rpx" color="#fff" bind:click="closeEvent" />
+  </view>
+</van-overlay>

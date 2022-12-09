@@ -1,10 +1,12 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/waimai/waimai",
     "pages/didi/diid",
     "pages/index/index",
     "pages/logs/logs",
     "pages/goods/goods"
+  
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,6 +14,11 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle": "black"
   },
-  "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-popup":  "@vant/weapp/popup/index",
+    "van-overlay": "@vant/weapp/overlay/index",
+    "van-icon": "@vant/weapp/icon/index"
+  }
 }

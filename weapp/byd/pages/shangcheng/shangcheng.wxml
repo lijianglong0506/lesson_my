@@ -1,2 +1,3 @@
-<!--pages/shangcheng/shangcheng.wxml-->
-<text>pages/shangcheng/shangcheng.wxml</text>
+<swiper autoplay="true">
+    
+</swiper>

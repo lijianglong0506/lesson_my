@@ -65,6 +65,17 @@
     Block 开始  rx_tab  新的组件
     Element  内部元素的申明  rx_tab__item
     Modifier rx_tab__item-on
-- 
+- 中大型应用 建议采用框架
+为什么小程序不用框架， 小程序之所以小    因为小程序的空间文件上传不能超过2m
+  有赞 vant 
+  1. 小程序 变成node 项目
+  npm init -y  多了一个package.json
+  2.  npm i @vant/weapp -S --production   安装vant  多了一个 node_modules/@vant
+  3. 工具 -> 构建npm   多了一个miniprogram_npm
+  4. 去除app.json
+  v2
+  5. 引用要用的组件
+
+  
 
     
