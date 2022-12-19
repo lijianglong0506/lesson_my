@@ -1,0 +1,6 @@
+<!-- <text>{{goodslist.length}}</text> -->
+<view class="goods">
+  <block wx:for="{{goodslist}}" wx:key="index">
+  <w-goods-item class="goods-item" goodsitem="{{item}}"></w-goods-item>
+  </block>
+</view>

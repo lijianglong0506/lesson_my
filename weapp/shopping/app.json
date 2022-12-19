@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/home/home",
-    "components/w-tab-control/w-tab-control"
+    "components/w-tab-control/w-tab-control",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
