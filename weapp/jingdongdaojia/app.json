@@ -1,0 +1,17 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "",
+    "navigationBarTitleText": "京东到家",
+    "navigationBarTextStyle":"black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+  "van-overlay":"@vant/weapp/overlay/index",
+  "van-icon": "@vant/weapp/icon/index"
+} 
+}

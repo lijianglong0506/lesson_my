@@ -1,0 +1,6 @@
+<van-overlay show="{{eventShow}}">  
+  <view class="event">
+    <image mode="widthFix" src="	https://eimg.smzdm.com/202107/23/60fa2992b28561995.png"/>
+    <van-icon custom-class="close" name="close" size="64rpx" color="#fff" bind:click="closeEvent" />
+  </view>
+</van-overlay>

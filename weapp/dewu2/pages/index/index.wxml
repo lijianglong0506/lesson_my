@@ -1,0 +1,7 @@
+<view class="page">
+position:absolute | fixed | relative | static
+  <van-sticky>
+  
+  </van-sticky>
+  <view style="height: 300vh;background-color: red;"></view>
+</view>

@@ -1,0 +1,16 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+  "usingComponents": {
+    "van-sticky": "/miniprogram_npm/@vant/weapp/sticky"
+  },
+  "sitemapLocation": "sitemap.json"
+}
