@@ -46,5 +46,4 @@ drag end 放开
        dragStart dragEnd  添加一些被拖拽的效果
     2. 容器元素
 
-
      
