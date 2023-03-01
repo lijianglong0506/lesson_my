@@ -1,52 +1,82 @@
-<template>
- <Layout>
-  <div style="margin:1rem 0;">
-    <piniaLogo/>
-  </div>
-  <!-- 状态？ 私有状态？ store use模块 name属性 -->
-  <h2>Hello {{user.name}}</h2>
-  <form @submit.prevent="addItemToCart">
-<input type="text" v-model="itemName">
-<button type="submit">Add</button>
-  </form>
-  <form @submit.prevent="buy">
-  <ul>
-    <li v-for="item in cart.items" :key="item.name">
-     {{item.name}} {{item.amount}}
-     <button @click="cart.removeItem(item.name)">-</button>
-    </li>
-  </ul>
-  </form>
- </Layout>
-</template>
-
 <script setup>
-import { ref } from 'vue'
-import Layout from './layouts/default.vue'
-import PiniaLogo from './components/PiniaLogo.vue'
-// 共享状态来到组件  hooks 函数
-// import { useStore } from 'vuex'     root store
-import { useCartStore } from './store/cart.js'
-import { useUserStore } from './store/user.js'   //user 模块
-// const store = useStore
-//store.state.user.name
-const user = useUserStore()
-const cart = useCartStore()
-
-// 定义私有状态
-const itemName = ref('')
-
-const addItemToCart = () => {
-   if(!itemName.value) return
-   cart.addItem(itemName.value)
-   itemName.value = ''
+import { reactive, onMounted } from 'vue'
+import { getGoods } from './service/goods'
+import GoodsItem from './components/GoodsItem.vue'
+const heights = [0, 0]; // 两列的高度， 动态修改
+const state = reactive({
+  allGoods: [],
+  leftGoods: [],
+  rightGoods: []
+})
+const getMinHeight = () => {
+  let minHeight = Math.min(...heights);
+  return heights.indexOf(minHeight)
 }
 
-const buy = () => {
+onMounted(async () => {
+  const data = await getGoods();
+  state.allGoods = data
+  let leftTempGoods = [],
+    rightTempGoods = [];
+  
+  for (let i = 0; i < data.length; i++) {
+    let minHeightIndex = getMinHeight()
+    if (minHeightIndex == 0) {
+      leftTempGoods.push(data[i])
+    } else {
+      rightTempGoods.push(data[i])
+    }
+    heights[minHeightIndex] += data[i].height
+  }
+  console.log(leftTempGoods, rightTempGoods);
+  state.leftGoods = leftTempGoods
+  state.rightGoods = rightTempGoods
+})
 
-}
 </script>
 
-<style scoped>
+<template>
+<div class="page">
+  <header></header>
+  <main class="wrapper">
+    <div class="col">
+        <GoodsItem  v-for="goods in state.leftGoods" :key="goods.id" :goods="goods"/>
+        </div>
+    <div class="col">
+        <GoodsItem  v-for="goods in state.rightGoods" :key="goods.id" :goods="goods"/>
+        </div>
+  </main>
+  <footer></footer>
+</div>
+</template>
 
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+.page {
+  display: flex;
+  flex-direction: column;
+  
+  height: 100vh;
+  overflow: hidden;
+}
+header, footer {
+  height: 2rem;
+}
+main {
+  flex: 1;
+  /* background: green; */
+  padding: 0 .26666rem;
+  display: flex;
+  justify-content:space-between;
+  overflow-y: scroll;
+}
+.col {
+  /* height: 100%; */
+  width: 48%;
+  /* background-color: yellow; */
+  /* overflow-y: scroll; */
+}
 </style>
