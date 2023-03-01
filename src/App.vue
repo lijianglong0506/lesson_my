@@ -1,82 +1,54 @@
 <script setup>
-import { reactive, onMounted } from 'vue'
-import { getGoods } from './service/goods'
-import GoodsItem from './components/GoodsItem.vue'
-const heights = [0, 0]; // 两列的高度， 动态修改
-const state = reactive({
-  allGoods: [],
-  leftGoods: [],
-  rightGoods: []
-})
-const getMinHeight = () => {
-  let minHeight = Math.min(...heights);
-  return heights.indexOf(minHeight)
+import { ref, onMounted, nextTick } from 'vue'
+const chartEl = ref(null)
+let categories = ['老包', '老南', '老君'];
+let genDataArr = () => {
+  return categories.map(t => Math.ceil(Math.random()*100))
 }
-
-onMounted(async () => {
-  const data = await getGoods();
-  state.allGoods = data
-  let leftTempGoods = [],
-    rightTempGoods = [];
-  
-  for (let i = 0; i < data.length; i++) {
-    let minHeightIndex = getMinHeight()
-    if (minHeightIndex == 0) {
-      leftTempGoods.push(data[i])
-    } else {
-      rightTempGoods.push(data[i])
+onMounted(() => {
+  // console.log(chartEl.value)
+  nextTick(() => {
+    // reactive ref 更新 全部到位
+    const chart = echarts.init(chartEl.value)
+    const option = {
+      legend: {
+        data: ['黑子程度']
+      },
+      xAxis: {
+        data: categories
+      },
+      yAxis: {},
+      series: [
+        {
+          name: '销量',
+          type: 'bar',
+          data: genDataArr()
+        }
+      ]
     }
-    heights[minHeightIndex] += data[i].height
-  }
-  console.log(leftTempGoods, rightTempGoods);
-  state.leftGoods = leftTempGoods
-  state.rightGoods = rightTempGoods
-})
+    chart.setOption(option)
 
+    setInterval(() => {
+      chart.setOption({
+        series: [
+            {
+                data: genDataArr()
+            }
+        ]
+      })
+    },1000)
+
+  })
+})
 </script>
 
 <template>
-<div class="page">
-  <header></header>
-  <main class="wrapper">
-    <div class="col">
-        <GoodsItem  v-for="goods in state.leftGoods" :key="goods.id" :goods="goods"/>
-        </div>
-    <div class="col">
-        <GoodsItem  v-for="goods in state.rightGoods" :key="goods.id" :goods="goods"/>
-        </div>
-  </main>
-  <footer></footer>
-</div>
+  <div class="chart" ref="chartEl"></div>
 </template>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
-.page {
-  display: flex;
-  flex-direction: column;
-  
-  height: 100vh;
-  overflow: hidden;
-}
-header, footer {
-  height: 2rem;
-}
-main {
-  flex: 1;
-  /* background: green; */
-  padding: 0 .26666rem;
-  display: flex;
-  justify-content:space-between;
-  overflow-y: scroll;
-}
-.col {
-  /* height: 100%; */
-  width: 48%;
-  /* background-color: yellow; */
-  /* overflow-y: scroll; */
+.chart {
+  width: 500px;
+  height: 500px;
 }
 </style>
