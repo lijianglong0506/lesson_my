@@ -1,5 +1,11 @@
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
+import  router from './router/index'
+import 'lib-flexible/flexible' 
+import './assets/base.css'
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+app  
+    .use(router)
+    .mount('#app')
