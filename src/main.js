@@ -1,11 +1,8 @@
-import { createApp } from 'vue'
+// console.log('hello world');
+// import App from './App.vue'; // 引入App.vue 但是 .vue文件无法识别
+import { createApp } from 'vue'  // 依赖关系
 import App from './App.vue'
-import  router from './router/index'
-import 'lib-flexible/flexible' 
-import './assets/base.css'
-
 const app = createApp(App)
-
-app  
-    .use(router)
-    .mount('#app')
+app.mount('#root')
+// const root = document.getElementById('root')
+// root.textContent = '你喵贵姓？'
