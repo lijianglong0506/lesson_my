@@ -1,39 +1,60 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import Shopping from '../views/Shopping.vue'
-import Cell from '../views/Cell.vue'
-import Message from '../views/Message.vue'
-import Mine from '../views/Mine.vue'
 
 const router = createRouter({
     history: createWebHashHistory(),
-    routes:[
+    routes: [
         {
-            path:'/',
-            name:'Home',
-            component: Home
+            path: '/',   // 根路径   login 
+            // http 状态码  302 跳转 浏览器 
+            redirect: '/introduce'  // 跳转
         },
         {
-            path:'/Shopping',
-            name:'Shopping',
-            component:Shopping
+            path: '/introduce',
+            name: 'introduce',
+            component: () => import('@/views/Introduce.vue')
         },
         {
-            path:'/Cell',
-            name:'Cell',
-            component:Cell
+            path: '/login',
+            name: 'login',
+            component: () => import('@/views/Login.vue')
         },
         {
-            path:'/Message',
-            name:'Message',
-            component: Message
+            path: '/add',
+            name: 'add',
+            meta: {
+                login: true
+            },
+            component: () => import('@/views/Add.vue')
         },
         {
-            path:'/Mine',
-            name:'Mine',
-            component:Mine
+            path:'/swiper',
+            name: 'swiper',
+            meta: {
+                login: true
+            },
+            component: () => import('@/views/Swiper.vue')
+        },
+        {
+            path: '/category',
+            name: 'category',
+            meta: {
+                login: true
+            },
+            component: () => import('@/views/category.vue'),
+            children: [
+                {
+                    path: '/category/level2',
+                    name: 'level2',
+                    component: () => import('@/views/category.vue')
+                },
+                {
+                    path: '/category/level3',
+                    name: 'level3',
+                    component: () => import('@/views/category.vue')
+                }
+            ]
         }
     ]
 })
-export default router
 
+export default router
