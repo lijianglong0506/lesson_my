@@ -1,20 +1,26 @@
-import Mock, { Random } from 'mockjs'
-// 拦截 axios 发出的请求
-Mock.mock(/\/goods/, 'get', () => {
-    const data =[];
-    const maxNum = 400;
-    const minNum = 100;
-    for(let i = 0; i < 20; i++){
-        let randomHeight = parseInt(
-            Math.random()*(maxNum - minNum + 1)+ minNum
-        )
-        let item = {
-            id : 1,
-            title: Random.ctitle(),
-            height: randomHeight,
-            pic:Random.image(`200x${randomHeight}`,'#FF6600')
-        }
-        data.push(item)
+export default [
+    {
+        link: '',
+        imgSrc : 'https://i.328888.xyz/2023/03/10/s4nld.png'
+    },
+    {
+        link: '',
+        imgSrc : 'https://i.328888.xyz/2023/03/10/s4nld.png'
+    },
+    {
+        link: '',
+        imgSrc : 'https://i.328888.xyz/2023/03/10/s4nld.png'
+    },
+    {
+        link: '',
+        imgSrc : 'https://i.328888.xyz/2023/03/10/s4nld.png'
+    },
+    {
+        link: '',
+        imgSrc : 'https://i.328888.xyz/2023/03/10/s4nld.png'
+    },
+    {
+        link: '',
+        imgSrc : 'https://i.328888.xyz/2023/03/10/s4nld.png'
     }
-    return data;
-})
+]
