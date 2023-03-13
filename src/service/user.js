@@ -1,9 +1,5 @@
-import axios from './config.js'
+import axios from './config'
 
-export const login = (params) => {
-    return axios.post('/adminUser/login', params)
-}
-
-export const getUserProfile = () => {
-    return axios.get('/adminUser/profile')
+export const doLogin = (user) => {
+   return axios.post('/login', user)
 }

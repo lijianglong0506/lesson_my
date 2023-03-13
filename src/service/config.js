@@ -1,16 +1,14 @@
 import axios from 'axios'
-import { getLocal } from '@/utils'
 
-axios.defaults.baseURL = 
-    'http://backend-api-02.newbee.ltd/manage-api/v1/'
-axios.defaults.headers['token'] = getLocal('token') || ''
+axios.interceptors.request.use((config) => {
+    let token = localStorage.getItem('token')
+    if(token){
+        config.headers.Authorization = token
+    }
+    return config
+})
 
-axios.interceptors.response.use(res => {
-    // code,
-    // message
-    // data: {
-    //     data:
-    // }
+axios.interceptors.response.use((res) => {
     return res.data
 })
 

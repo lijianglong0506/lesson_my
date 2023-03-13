@@ -1,60 +1,24 @@
-<template>
-    <div>
-        <v-header :seller="seller"/>
-        <div class="tab border-1px">
-            <div class="tab-item">
-                <router-link to="/goods">商品</router-link>
-            </div>
-            <div class="tab-item">
-                <router-link to="/ratings">评论</router-link>
-            </div>
-            <div class="tab-item">
-                <router-link to="/seller">商家</router-link>
-            </div>
-        </div>
-        <router-view/>
-    </div>
-    
-</template>
+<script setup>
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
-<script>
-import header from './components/header/header.vue'
-import sellerData from './mock/data/seller.json'
-// 没有composition api 没有setup 语法糖
-// 类式 this
-export default {
-    data() {
-        return{
-            seller: {}
-        }
-    },
-    mounted(){
-    console.log(this.$router, this.route); // useRouter
-    setTimeout(() => {
-        this.seller = sellerData.data
-    },1000)
-},
-    components: {
-        'v-header':header // v-header 内置组件中有个叫header的组件，这里叫v-header 语义化
-}
-}
+router.beforeEach((to, from, next) => {
+  // console.log(to, '---------------');
+  if (to.meta.login) {
+    if (!localStorage.getItem('token')) {
+      next(`/login?redirect_url=${to.path}`)
+      return
+    } 
+  }
+  next()
+})
 </script>
 
-<style lang="stylus" scoped>
-@import "./assets/stylus/mixin.styl";
-.tab
-    display flex
-    width 100%
-    height 40px
-    line-height 40px
-    border-1px(rgba(7, 17, 27, 0.1))
-    .tab-item
-        flex 1
-        text-align center
-        & > a
-            display block
-            font-size 14px
-            color rgb(77, 85, 93)
-            &.active
-                color rgb(240, 20, 20)
+<template>
+<router-link to="/second">Second</router-link>
+<router-view />
+</template>
+
+<style>
+
 </style>

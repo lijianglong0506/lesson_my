@@ -1,20 +1,27 @@
-import VueRouter from 'vue-router'
-import goods from '../views/goods/goods.vue'
-
-const routes = [{
-    path: '/',
-    // redirect:goods
-    component:goods
-},
-{
-    path: '/goods',
-    component: goods
-}]
-
-const router = new VueRouter({
-    mode: 'history',
-    linkActiveClass: 'active',
-    routes,
+import { createRouter, createWebHashHistory } from 'vue-router'
+import Home from '../views/Home.vue'
+const routes = [
+    {
+        path: '/',
+        name: '/home',
+        component:Home
+    },
+    {
+        path: '/second',
+        name: "second",
+        component: () => import('../views/Second.vue'),
+        meta: {
+            login: true
+        }
+    },
+    {
+        path: '/login',
+        name: "login",
+        component: () => import('../views/Login.vue'),
+    },
+]
+const router = createRouter({
+    history: createWebHashHistory(),
+    routes
 })
-
 export default router
