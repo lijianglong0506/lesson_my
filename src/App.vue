@@ -1,24 +1,22 @@
 <script setup>
-import { useRouter } from 'vue-router'
-const router = useRouter()
-
-router.beforeEach((to, from, next) => {
-  // console.log(to, '---------------');
-  if (to.meta.login) {
-    if (!localStorage.getItem('token')) {
-      next(`/login?redirect_url=${to.path}`)
-      return
-    } 
-  }
-  next()
+import Input from './components/Input.vue'
+import { ref } from 'vue'
+const tel = ref('')
+// 组件通信的角度 如何？
+// tel 跟 Input 组件双向绑定 而不是标签
+// 父子组件之间props 单向的   props  ->
+// 子组件 emit 将 input 标签的change 传回来 修改tel
+setTimeout(() => {
+    // tel.value = '13888888888'
 })
 </script>
 
 <template>
-<router-link to="/second">Second</router-link>
-<router-view />
+{{tel}}
+<!-- <Input :modelValue="tel" @updata:modelValue="tel=$event" /> -->
+<Input v-model="tel" :disabled="false" placeholder="请输入手机号" />
 </template>
 
-<style>
+<style scoped>
 
 </style>
