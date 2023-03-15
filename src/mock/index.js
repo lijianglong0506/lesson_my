@@ -1,35 +1,21 @@
 import Mock from 'mockjs'
-
-
-Mock.mock(/\/login/, 'post', (options) => {
-    console.log(options, '//////////////////////')
-    // 账号 密码的正确性？ 
-    const { body } = options
-    // console.log(typeof body)
-    const { name, password} = JSON.parse(body)
-    console.log(name, password, '???')
-    if (name === 'admin' && password === '123456') {
-        return {
-            code: 0,
-            status: 200,
-            token: 'xxvcvdvcvcvdfdfddddddd',
-            msg: 'hello'
-        }
-    } else {
-        return {
-            code: 1,
-            status: 400,
-            msg: '账号或密码有误， 请重新登录'
-        }
-        
-    }
-    
+import swiperList from './data/swiperList.js'
+import products from './data/products.js'
+Mock.setup({
+    timeout: '50-1000'  // 随机的延迟时间，模式请求耗时
 })
+// 轮播图 url 请求里面才有  地址：/swiperList
+// 拦截App中的xhr  请求  正则 匹配路径 
+Mock.mock(/\/swiperList/, 'get', () => {
+    return{
+        code: 0,
+        result: swiperList
+    }
+}) 
 
-Mock.mock(/\/second/, 'get', (options) => {
-    console.log(options);
-    return {
-        code: 200,
-        msg: 'ok'
+Mock.mock(/\/products/, 'get', () => {
+    return{
+        code: 0,
+        result: products
     }
 })

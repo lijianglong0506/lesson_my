@@ -2,7 +2,7 @@
     <div class="header">
         <div class="header_item">
             <img src="https://i.328888.xyz/2023/03/06/hDXbU.png">
-            <div>真的官方体验 买卖二手不一样 -></div>
+            <div>真的官方体验 买卖二手不一样 →</div>
         </div>
         <div class="header_item_right">
             <div class="text">ALL</div>
