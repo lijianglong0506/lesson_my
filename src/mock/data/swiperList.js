@@ -14,5 +14,5 @@ export default [
     {
         link: '',
         imgSrc: 'https://i.328888.xyz/2023/03/11/s5RXy.png'
-    }
+    },
 ]

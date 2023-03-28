@@ -1,8 +1,11 @@
 <template>
     <div class="page">
         <router-link to="/home" class="page_item">
-            <i class="iconfont icon-shouye"></i>
-            <div class="shouye">首页</div>
+            <div class="block" v-show="!state.show"></div>
+            <div v-show="state.show">
+                <i class="iconfont icon-shouye"></i>
+                <div class="shouye">首页</div>
+            </div>
         </router-link>
         <router-link to="/Shopping" class="page_item">
             <i class="iconfont icon-ziyoushichang"></i>
@@ -21,17 +24,31 @@
             <i class="iconfont icon-31wode"></i>
             <div class="31wode">我的</div>
         </router-link>
-
     </div>
+    <back-top :show="state.show" />
 </template>
 
 <script setup>
+import { reactive } from 'vue';
+import BackTop from '@/views/Home/BackTop.vue'
+const state = reactive({
+    show: true
+})
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > window.innerHeight) {
+        state.show = false
+    }
+    if (window.pageYOffset == 0) {
+        state.show = true
+    }
+})
 
 </script>
 
 <style lang="stylus" scoped>
 @import '../common/style/mixin.styl'
 .page 
+    border-top 2px solid #DDD
     width 100%
     display flex
     justify-content space-between // 每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
@@ -43,6 +60,9 @@
         fd()
         justify-content center
         align-items center
+        .block
+            width 23.89px
+            height 52.8px
         .iconfont
             font-size 0.575rem /* 30/16 */
         .text

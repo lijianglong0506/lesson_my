@@ -1,6 +1,9 @@
 import Mock from 'mockjs'
 import swiperList from './data/swiperList.js'
 import products from './data/products.js'
+import categoryNavSide from './data/categoryNavSide.js'
+import categoryContent from './data/categoryContent.js'
+import shopping from './data/shopping.js'
 Mock.setup({
     timeout: '50-1000'  // 随机的延迟时间，模式请求耗时
 })
@@ -17,5 +20,26 @@ Mock.mock(/\/products/, 'get', () => {
     return{
         code: 0,
         result: products
+    }
+})
+
+Mock.mock(/\/categoryNavSide/, 'get', () => {
+    return{
+        code: 0,
+        result: categoryNavSide
+    }
+})
+
+Mock.mock(/\/categoryContent/, 'get', () => {
+    return{
+        code: 0,
+        result: categoryContent
+    }
+})
+
+Mock.mock(/\/shopping/, 'get', () => {
+    return{
+        code: 0,
+        result: shopping
     }
 })

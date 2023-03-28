@@ -1,5 +1,8 @@
-import axios from './config'
+import axios from './config.js'
 
-export const getCategoryData = (params) => {
-    return axios.get('/categories', params)
+export const getCategoryNavSide = () => {
+    return axios.get('/categoryNavSide')
+}
+export const getCategoryContent = () => {
+    return axios.get('/categoryContent')
 }

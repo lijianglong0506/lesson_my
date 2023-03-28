@@ -5,12 +5,19 @@ import 'lib-flexible/flexible'
 import './assets/base.css'
 import '@/mock/index'   // 模拟数据
 import {createPinia} from 'pinia'
-import { Swipe, SwipeItem, Lazyload } from 'vant'
-import { Tabs, Tab } from 'vant'
+import { 
+    Swipe, 
+    SwipeItem, 
+    Tabs,
+    Lazyload ,
+    Tab,
+    Field,
+} from 'vant'
 import 'vant/lib/index.css' 
 const app = createApp(App)
 
 app 
+    .use(Field)
     .use(createPinia())
     .use(Lazyload)
     .use(Tab)

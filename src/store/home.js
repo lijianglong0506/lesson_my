@@ -18,6 +18,5 @@ export const useHomeStore = defineStore('home', {
             const res = await getProducts();
             this.products = res.result
         }
-
     }
 })

@@ -6,3 +6,4 @@ export const getSwiperList = () => {
 export const getProducts = () => {
     return axios.get('/products')
 }
+
