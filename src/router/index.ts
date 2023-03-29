@@ -1,33 +1,46 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory } from 'vue-router'
+import Home from '../views/Home.vue'
+import store from '../store'
 
-import Home from "@/views/Home.vue";
-
-// ts类型检测
-//  <> 泛型约束  泛指内部的所有类型
-
-
-const routes:Array<RouteRecordRaw> = [
-    {
-        path: '/',
-        name: 'Home',
-        component: Home,
-        redirect: '/recommend',
-        children: [
-            {
-                path: '/recommend',
-                name:'recommend',
-                component:() => import('@/views/recommend/Index.vue'),
-                meta: {
-                    isCover: true
-                }
-            }
-        ]
-    }
-]
-
+// 类型的推导
 const router = createRouter({
-    history: createWebHashHistory(),
-    routes
+    history: createWebHistory(),
+    routes: [
+        {
+            path: '/',
+            name: 'home',
+            component: Home
+        },
+        {
+            path: '/create',
+            name: 'create',
+            meta: {
+                requiredLogin: true
+            },  
+            component: () => import ('../views/CreatePost.vue')        
+        },
+        {
+            path: '/login',
+            name: 'login',
+            component: () => import ('../views/Login.vue')        
+        }
+    ]
 })
 
-export default  router
+router.beforeEach((to, from, next) => {
+    const { user, token } = store.state
+    const { requiredLogin } = to.meta
+    if(!user.isLogin) {
+        if(token) {
+
+        }else{
+            if(requiredLogin) {
+                next('login')
+            }else{
+                next()
+            }
+        }
+    }
+})
+
+export default router
